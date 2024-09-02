@@ -188,8 +188,55 @@ if (width <= 700 && width > 400) {
         span.addEventListener("click", up)
     })
 }
+if (width <= 400 && width > 300) {
+    document.getElementById('nav-drop').style.display = "block";
+    window.onscroll = function () {
+        fix()
+    };
 
-let topn = document.getElementById('tryIt').offsetTop;
+    function scrollToPosition(position) {
+        scrollTo({
+            top: position,
+            behavior: "smooth"
+        });
+    }
+    function fix() {
+        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (scrollTop > 900) {
+            document.getElementById('header').style.position = "fixed";
+        }
+        else {
+            document.getElementById('header').style.position = "static";
+        }
+    }
+    window.onscroll = fix;
+
+    function up() {
+        scrollToPosition(0);
+    }
+
+    function howItWork() {
+        scrollToPosition(998);
+    }
+    function meals() {
+        scrollToPosition(3717);
+    }
+    function trans() {
+        scrollToPosition(5290);
+    }
+    function pricing() {
+        scrollToPosition(7187);
+    }
+    function tryIt() {
+        scrollToPosition(9215);
+    }
+    let spans = document.querySelectorAll("footer div span");
+    spans.forEach(span => {
+        span.addEventListener("click", up)
+    })
+}
+
+let topn = document.getElementById('pricing').offsetTop;
 document.getElementById('divnav').innerHTML = topn - 190;
 
 
